@@ -1,3 +1,251 @@
-<p>
-  navbar works!
-</p>
+<!-- Sticky header wrapper -->
+<header class="sticky top-0 z-50 sm:max-w-[85vw] mx-auto">
+  <!-- Top info bar (pill) -->
+  <div class="px-4 sm:px-8 lg:px-12 hidden md:block">
+    <div class="mx-auto">
+      <div
+        class="mt-3 rounded-t-full bg-blood-red-500 text-white shadow-md ring-1 ring-blood-red-100/40 px-4"
+      >
+        <div
+          class="flex items-center justify-between px-4 py-2 text-xs sm:text-sm"
+        >
+          <div class="flex items-center gap-4 sm:gap-6">
+            <span class="flex items-center gap-2">
+              <!-- Mail icon -->
+              <lucide-angular [img]="icons.Mail" class="w-5 h-5" />
+              <span class="text-white/90">contact-sikkimnewarguthi.org</span>
+            </span>
+            <span class="hidden xs:flex items-center gap-2">
+              <!-- Phone icon -->
+              <lucide-angular [img]="icons.Phone" class="w-5 h-5" />
+              <span class="text-white/90">+91 3592 000 000</span>
+            </span>
+            <span class="hidden md:flex items-center gap-2">
+              <!-- Location icon -->
+              <lucide-angular [img]="icons.MapPin" class="w-5 h-5" />
+              <span class="text-white/90">Gangtok, Sikkim, India</span>
+            </span>
+          </div>
+          <div class="flex items-center gap-3">
+            <!-- Social icons -->
+            <a
+              aria-label="Facebook"
+              class="text-white/90 hover:text-white"
+              href="#"
+            >
+              <lucide-angular [img]="icons.Facebook" class="w-5 h-5" />
+            </a>
+            <a
+              aria-label="Twitter"
+              class="text-white/90 hover:text-white"
+              href="#"
+            >
+              <lucide-angular [img]="icons.Twitter" class="w-5 h-5" />
+            </a>
+            <a
+              aria-label="Instagram"
+              class="text-white/90 hover:text-white"
+              href="#"
+            >
+              <lucide-angular [img]="icons.Instagram" class="w-5 h-5" />
+            </a>
+            <a
+              aria-label="YouTube"
+              class="text-white/90 hover:text-white"
+              href="#"
+            >
+              <lucide-angular [img]="icons.Youtube" class="w-5 h-5" />
+            </a>
+            <a
+              aria-label="LinkedIn"
+              class="text-white/90 hover:text-white"
+              href="#"
+            >
+              <lucide-angular [img]="icons.Linkedin" class="w-5 h-5" />
+            </a>
+          </div>
+          <a
+            href="#contact"
+            class="ml-2 inline-flex items-center rounded-full bg-white px-3 py-1 text-blood-red-600 hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blood-red-300"
+          >
+            <lucide-angular [img]="icons.Send" class="w-4 h-4 mr-1" />
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop navbar -->
+  <div class="mx-auto hidden md:block">
+    <nav
+      class="mx-auto -mt-1 rounded-b-4xl bg-smoky-black-400 px-4 sm:px-6 py-2 shadow-md ring-1 ring-smoky-black-100/20 border border-blood-red-200 flex items-center justify-between"
+    >
+      <!-- Brand -->
+      <a class="flex items-center gap-2" href="/">
+        <img
+          src="/logo.png"
+          alt="SNG"
+          class="h-12 w-12 rounded-full bg-white object-cover"
+        />
+        <span class="text-lg font-semibold text-white">SNG</span>
+      </a>
+
+      <ul class="hidden lg:flex items-center gap-6 text-sm text-white/90">
+        <ng-container *ngFor="let tab of tabs">
+          <li>
+            <a class="hover:text-blood-red-300" [href]="tab.href">
+              {{ tab.label }}
+            </a>
+          </li>
+        </ng-container>
+      </ul>
+
+      <!-- CTA + emblem -->
+      <a class="hidden sm:flex items-center gap-2" href="/">
+        <button
+          class="bg-white hover:bg-white/90 text-smoky-black-900 px-4 py-2 rounded-full flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blood-red-300"
+        >
+          <span>Join Us</span>
+          <lucide-angular [img]="icons.User" class="w-5 h-5" />
+        </button>
+        <img src="/statehood.png" alt="SNG" class="h-12 w-12 object-cover" />
+      </a>
+    </nav>
+  </div>
+
+  <!-- Mobile bar -->
+  <div class="mx-auto md:hidden">
+    <nav
+      class="-mt-1 flex items-center justify-between rounded-b-3xl bg-smoky-black-600 px-4 py-2 text-white shadow-md"
+    >
+      <a class="flex items-center gap-2" href="/">
+        <img
+          src="/logo.png"
+          alt="SNG"
+          class="h-10 w-10 rounded-full bg-white object-cover"
+        />
+
+        <span class="text-base font-semibold">SIKKIM NEWAR GUTHI</span>
+      </a>
+      <button
+        (click)="toggleSidebar()"
+        class="inline-flex items-center justify-center rounded-full px-3 py-2 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blood-red-300"
+      >
+        <lucide-angular [img]="icons.Menu" class="w-6 h-6" />
+      </button>
+    </nav>
+  </div>
+
+  <!-- Slide-over sidebar (right) -->
+  <div
+    class="fixed inset-0 z-50 md:hidden"
+    [class.pointer-events-none]="!isSidebarOpen"
+  >
+    <!-- Backdrop -->
+    <div
+      class="absolute inset-0 bg-smoky-black-900/50 transition-opacity"
+      [class.opacity-0]="!isSidebarOpen"
+      [class.opacity-100]="isSidebarOpen"
+      (click)="closeSidebar()"
+    ></div>
+    <!-- Panel -->
+    <aside
+      class="absolute right-0 top-0 h-full w-80 max-w-[85vw] transform bg-white shadow-xl transition-transform duration-200"
+      [class.translate-x-full]="!isSidebarOpen"
+      [class.translate-x-0]="isSidebarOpen"
+    >
+      <!-- Header with close button -->
+      <div
+        class="flex items-center justify-between border-b border-blood-red-100 px-4 py-3"
+      >
+        <span class="text-smoky-black-900 font-semibold">Menu</span>
+        <button
+          (click)="closeSidebar()"
+          class="rounded-full p-2 hover:bg-smoky-black-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blood-red-300"
+        >
+          <lucide-angular
+            [img]="icons.X"
+            class="w-5 h-5 text-smoky-black-700"
+          />
+        </button>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="px-4 py-4 flex-1">
+        <h3 class="text-sm font-semibold text-smoky-black-900 mb-3">
+          Navigation
+        </h3>
+        <div class="space-y-1">
+          @for (tab of tabs; track tab.label) {
+          <a
+            [href]="tab.href"
+            (click)="closeSidebar()"
+            class="flex items-center gap-3 rounded-md px-3 py-2 text-sm text-smoky-black-700 hover:bg-blood-red-50 hover:text-blood-red-600 transition-colors"
+          >
+            {{ tab.label }}
+          </a>
+          }
+        </div>
+      </nav>
+
+      <!-- Bottom Actions -->
+      <div class="border-t border-blood-red-100 px-4 py-4 space-y-3">
+        <a
+          href="#contact"
+          class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-blood-red-500 px-4 py-3 text-white hover:bg-blood-red-600 transition-colors"
+        >
+          <lucide-angular [img]="icons.Send" class="w-4 h-4" />
+          Contact Us
+        </a>
+        <a
+          href="#join"
+          class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-smoky-black-600 px-4 py-3 text-white hover:bg-smoky-black-700 transition-colors"
+        >
+          <lucide-angular [img]="icons.User" class="w-4 h-4" />
+          Join Us
+        </a>
+      </div>
+      <!-- Social Media Section -->
+      <div class="border-b border-blood-red-100 px-4 py-2 flex justify-center">
+        <div class="flex items-center gap-3">
+          <a
+            aria-label="Facebook"
+            class="p-2 rounded-full bg-smoky-black-50 hover:bg-blood-red-50 text-smoky-black-600 hover:text-blood-red-600 transition-colors"
+            href="#"
+          >
+            <lucide-angular [img]="icons.Facebook" class="w-5 h-5" />
+          </a>
+          <a
+            aria-label="Twitter"
+            class="p-2 rounded-full bg-smoky-black-50 hover:bg-blood-red-50 text-smoky-black-600 hover:text-blood-red-600 transition-colors"
+            href="#"
+          >
+            <lucide-angular [img]="icons.Twitter" class="w-5 h-5" />
+          </a>
+          <a
+            aria-label="Instagram"
+            class="p-2 rounded-full bg-smoky-black-50 hover:bg-blood-red-50 text-smoky-black-600 hover:text-blood-red-600 transition-colors"
+            href="#"
+          >
+            <lucide-angular [img]="icons.Instagram" class="w-5 h-5" />
+          </a>
+          <a
+            aria-label="YouTube"
+            class="p-2 rounded-full bg-smoky-black-50 hover:bg-blood-red-50 text-smoky-black-600 hover:text-blood-red-600 transition-colors"
+            href="#"
+          >
+            <lucide-angular [img]="icons.Youtube" class="w-5 h-5" />
+          </a>
+          <a
+            aria-label="LinkedIn"
+            class="p-2 rounded-full bg-smoky-black-50 hover:bg-blood-red-50 text-smoky-black-600 hover:text-blood-red-600 transition-colors"
+            href="#"
+          >
+            <lucide-angular [img]="icons.Linkedin" class="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</header>

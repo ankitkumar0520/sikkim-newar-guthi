@@ -1,15 +1,27 @@
 @theme {
-  /* Smoky Black (#0C0404ff) */
-  --color-smoky-black-50: #f4f4f4;
-  --color-smoky-black-100: #e4e4e4;
-  --color-smoky-black-200: #c8c8c8;
-  --color-smoky-black-300: #969696;
-  --color-smoky-black-400: #4b4b4b;
-  --color-smoky-black-500: #0c0404ff;
-  --color-smoky-black-600: #0a0303;
-  --color-smoky-black-700: #080202;
-  --color-smoky-black-800: #060101;
-  --color-smoky-black-900: #040000;
+  /* Blood Red (#620400ff) */
+  --color-blood-red-50: #fceeed;
+  --color-blood-red-100: #f9d6d3;
+  --color-blood-red-200: #f1a7a4;
+  --color-blood-red-300: #e87473;
+  --color-blood-red-400: #cf3d3b;
+  --color-blood-red-500: #620400ff;
+  --color-blood-red-600: #570300;
+  --color-blood-red-700: #480200;
+  --color-blood-red-800: #390200;
+  --color-blood-red-900: #2b0100;
+
+  /* Orange Web (#F7A20Fff) */
+  --color-orange-web-50: #fffaf2;
+  --color-orange-web-100: #fff2de;
+  --color-orange-web-200: #ffe0b5;
+  --color-orange-web-300: #ffcc80;
+  --color-orange-web-400: #ffb347;
+  --color-orange-web-500: #f7a20fff;
+  --color-orange-web-600: #d98e0d;
+  --color-orange-web-700: #b3790b;
+  --color-orange-web-800: #8c6209;
+  --color-orange-web-900: #664b07;
 
   /* Chocolate Cosmos (#511B20ff) */
   --color-chocolate-cosmos-50: #f9f4f4;
@@ -35,30 +47,6 @@
   --color-sinopia-800: #722400;
   --color-sinopia-900: #541b00;
 
-  /* Blood Red (#620400ff) */
-  --color-blood-red-50: #fceeed;
-  --color-blood-red-100: #f9d6d3;
-  --color-blood-red-200: #f1a7a4;
-  --color-blood-red-300: #e87473;
-  --color-blood-red-400: #cf3d3b;
-  --color-blood-red-500: #620400ff;
-  --color-blood-red-600: #570300;
-  --color-blood-red-700: #480200;
-  --color-blood-red-800: #390200;
-  --color-blood-red-900: #2b0100;
-
-  /* Orange Web (#F7A20Fff) */
-  --color-orange-web-50: #fffaf2;
-  --color-orange-web-100: #fff2de;
-  --color-orange-web-200: #ffe0b5;
-  --color-orange-web-300: #ffcc80;
-  --color-orange-web-400: #ffb347;
-  --color-orange-web-500: #f7a20fff;
-  --color-orange-web-600: #d98e0d;
-  --color-orange-web-700: #b3790b;
-  --color-orange-web-800: #8c6209;
-  --color-orange-web-900: #664b07;
-
   /* Fire Engine Red (#CF2E29ff) */
   --color-fire-engine-red-50: #fef4f3;
   --color-fire-engine-red-100: #fde0dd;
@@ -70,6 +58,18 @@
   --color-fire-engine-red-700: #96221d;
   --color-fire-engine-red-800: #781c17;
   --color-fire-engine-red-900: #5a1512;
+
+  /* Smoky Black (#0C0404ff) */
+  --color-smoky-black-50: #f4f4f4;
+  --color-smoky-black-100: #e4e4e4;
+  --color-smoky-black-200: #969696;
+  --color-smoky-black-300: #1a1818;
+  --color-smoky-black-400: oklch(21% 0.034 264.665);
+  --color-smoky-black-500: #0c0404ff;
+  --color-smoky-black-600: #0a0303;
+  --color-smoky-black-700: #080202;
+  --color-smoky-black-800: #060101;
+  --color-smoky-black-900: #040000;
 }
 
 @media (min-width: 768px) {

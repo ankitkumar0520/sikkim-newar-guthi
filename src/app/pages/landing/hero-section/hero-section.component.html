@@ -1,0 +1,83 @@
+<!-- Swiper Slider Section -->
+<section class="relative h-[85vh] mx-0 sm:mx-4 lg:mx-6 overflow-hidden">
+  <swiper-container
+    navigation="false"
+    pagination="false"
+    autoplay="true"
+    loop="true"
+    speed="1000"
+    class="h-full w-full"
+  >
+    <swiper-slide *ngFor="let slide of slides">
+      <div class="relative h-full w-full">
+        <!-- Background Image for small screens -->
+        <div class="lg:hidden absolute inset-0">
+          <img
+            [src]="slide.image"
+            [alt]="slide.alt"
+            (error)="onImageError($event)"
+            class="absolute right-0 top-0 w-3/4 h-full object-cover"
+            loading="lazy"
+          />
+          <!-- Dark overlay for text readability on small screens -->
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"
+          ></div>
+        </div>
+
+        <!-- Content Container -->
+        <div
+          class="relative z-10 h-full flex flex-col lg:flex-row items-center sm:mt-0 mt-20"
+        >
+          <!-- Left Side - Text Content -->
+          <div
+            class="flex-1 px-2 lg:px-8 py-6 lg:py-12 text-black relative z-20"
+          >
+            <div class="space-y-6">
+              <!-- Main Heading -->
+              <h1 class="text-3xl lg:text-5xl font-bold leading-tight">
+                <span class="text-black">
+                  {{ slide.title.split(" ").slice(0, -1).join(" ") }}
+                </span>
+                <br />
+                <span class="text-blood-red-400">
+                  {{ slide.title.split(" ").slice(-1).join(" ") }}
+                </span>
+              </h1>
+
+              <!-- Decorative Line -->
+              <div class="w-3/10 h-1 bg-blood-red-400 rounded-full"></div>
+
+              <!-- Description -->
+              <p
+                class="text-lg lg:text-xl text-black leading-relaxed max-w-8/10 text-left"
+              >
+                {{ slide.description }}
+              </p>
+
+              <!-- Call to Action Button -->
+              <button
+                class="bg-blood-red-500 hover:bg-blood-red-600 text-white px-5 py-2 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+              >
+                {{ slide.buttonText }}
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Side - Full Image (Visible only on large screens) -->
+          <div
+            class="hidden lg:flex flex-1 h-full relative items-center justify-center"
+          >
+            <img
+              [src]="slide.image"
+              [alt]="slide.alt"
+              (error)="onImageError($event)"
+              class="w-full h-full object-contain pb-5"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</section>

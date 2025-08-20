@@ -1,5 +1,5 @@
 [build]
-  command = "ng build --configuration=production && ng run my-app:server:production"
+  command = "ng build --configuration=production && ng run sikkim-newar-guthi:server:production"
   publish = "dist/sikkim-newar-guthi/browser"
 
 [[plugins]]

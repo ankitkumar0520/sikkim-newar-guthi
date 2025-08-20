@@ -1,14 +1,27 @@
 <footer
-  class="bg-smoky-black-400 text-white pt-6 pb-4 px-4 sm:px-6 lg:px-8 rounded-t-4xl"
+  class="relative bg-[url('/assets/images/backgrounds/bg-saari.jpeg')] bg-contain bg-center text-white pt-6 pb-4 px-4 sm:px-6 lg:px-8 rounded-t-xl"
 >
-  <div class="mx-auto">
+  <div class="absolute inset-0 bg-black/70 z-10 rounded-t-xl"></div>
+  <div class="mx-auto relative z-20">
     <!-- Main Footer Content -->
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-8"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8 mb-8"
     >
-      <!-- Brand Section with Logos -->
-      <div class="lg:col-span-2">
+      <!-- Brand Section with Header and Description -->
+      <div class="md:col-span-2 lg:col-span-2">
         <div class="flex flex-col items-start space-y-4">
+          <!-- Header and Description -->
+          <div class="space-y-3">
+            <h2 class="text-2xl lg:text-3xl font-bold text-white uppercase">
+              Sikkim Newar Guthi
+            </h2>
+            <p class="text-smoky-black-100 text-sm leading-relaxed max-w-md">
+              Preserving and promoting the rich cultural heritage of Newar
+              community in Sikkim through unity, tradition, and community
+              development.
+            </p>
+          </div>
+
           <!-- Logo Row -->
           <div class="flex items-center gap-4 flex-wrap">
             <img
@@ -21,142 +34,100 @@
               alt="SNG Logo"
               class="h-14 w-14 rounded-full bg-white object-cover shadow-lg"
             />
-
             <img
               src="/statehood.png"
               alt="Statehood"
               class="h-14 w-auto object-contain"
             />
           </div>
-
-          <!-- Brand Name and Description -->
-          <div class="space-y-2">
-            <h2 class="text-2xl lg:text-3xl font-bold text-white">
-              Sikkim Newar Guthi
-            </h2>
-            <p class="text-smoky-black-100 text-sm leading-relaxed max-w-md">
-              Preserving and promoting the rich cultural heritage of Newar
-              community in Sikkim through unity, tradition, and community
-              development.
-            </p>
-          </div>
         </div>
       </div>
 
-      <!-- Quick Links -->
-      <div class="space-y-4">
-        <h3
-          class="text-base font-semibold text-white border-b border-blood-red-300 pb-2"
-        >
-          Quick Links
-        </h3>
-        <ul class="space-y-2">
-          <li>
-            <a
-              href="#"
-              class="text-smoky-black-100 hover:text-blood-red-300 transition-colors duration-200 flex items-center gap-2 group"
-            >
-              <span
-                class="w-1 h-1 bg-blood-red-400 rounded-full group-hover:bg-blood-red-300 transition-colors"
-              ></span>
-              About Us
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              class="text-smoky-black-100 hover:text-blood-red-300 transition-colors duration-200 flex items-center gap-2 group"
-            >
-              <span
-                class="w-1 h-1 bg-blood-red-400 rounded-full group-hover:bg-blood-red-300 transition-colors"
-              ></span>
-              Our Mission
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              class="text-smoky-black-100 hover:text-blood-red-300 transition-colors duration-200 flex items-center gap-2 group"
-            >
-              <span
-                class="w-1 h-1 bg-blood-red-400 rounded-full group-hover:bg-blood-red-300 transition-colors"
-              ></span>
-              Events
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              class="text-smoky-black-100 hover:text-blood-red-300 transition-colors duration-200 flex items-center gap-2 group"
-            >
-              <span
-                class="w-1 h-1 bg-blood-red-400 rounded-full group-hover:bg-blood-red-300 transition-colors"
-              ></span>
-              Gallery
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              class="text-smoky-black-100 hover:text-blood-red-300 transition-colors duration-200 flex items-center gap-2 group"
-            >
-              <span
-                class="w-1 h-1 bg-blood-red-400 rounded-full group-hover:bg-blood-red-300 transition-colors"
-              ></span>
-              Contact
-            </a>
-          </li>
-        </ul>
-      </div>
+      <!-- Link Sections (Responsive: 2 cols small, 3 cols large) -->
+      <div
+        class="grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 md:col-span-2 lg:col-span-3"
+      >
+        <!-- Quick Links -->
+        <div class="space-y-4">
+          <h3
+            class="text-base font-semibold text-white border-b border-blood-red-300 pb-2"
+          >
+            Quick Links
+          </h3>
+          <ul class="space-y-2">
+            <li *ngFor="let link of quickLinks">
+              <a
+                [href]="link.href"
+                class="text-smoky-black-100 hover:text-blood-red-300 transition-colors duration-200 flex items-center gap-2 group"
+              >
+                <span
+                  class="w-1 h-1 bg-blood-red-400 rounded-full group-hover:bg-blood-red-300 transition-colors"
+                >
+                </span>
+                {{ link.label }}
+              </a>
+            </li>
+          </ul>
+        </div>
 
-      <!-- Contact Info -->
-      <div class="space-y-4">
-        <h3
-          class="text-base font-semibold text-white border-b border-blood-red-300 pb-2"
-        >
-          Contact Info
-        </h3>
-        <div class="space-y-3">
-          <div class="flex items-start gap-3">
+        <!-- More Links -->
+        <div class="space-y-4">
+          <h3
+            class="text-base font-semibold text-white border-b border-blood-red-300 pb-2"
+          >
+            More Links
+          </h3>
+          <ul class="space-y-2">
+            <li *ngFor="let link of moreLinks">
+              <a
+                [href]="link.href"
+                class="text-smoky-black-100 hover:text-blood-red-300 transition-colors duration-200 flex items-center gap-2 group"
+              >
+                <span
+                  class="w-1 h-1 bg-blood-red-400 rounded-full group-hover:bg-blood-red-300 transition-colors"
+                >
+                </span>
+                {{ link.label }}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Community -->
+        <div class="space-y-4">
+          <h3
+            class="text-base font-semibold text-white border-b border-blood-red-300 pb-2"
+          >
+            Contact Us
+          </h3>
+          <div class="space-y-3">
             <div
-              class="w-2 h-2 bg-blood-red-400 rounded-full mt-2 flex-shrink-0"
-            ></div>
-            <div>
-              <p class="text-smoky-black-100 text-sm">Gangtok, Sikkim, India</p>
-              <p class="text-smoky-black-200 text-xs">Main Office</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <div
-              class="w-2 h-2 bg-blood-red-400 rounded-full mt-2 flex-shrink-0"
-            ></div>
-            <div>
-              <p class="text-smoky-black-100 text-sm">
-                contact-sikkimnewarguthi.org
-              </p>
-              <p class="text-smoky-black-200 text-xs">Email</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <div
-              class="w-2 h-2 bg-blood-red-400 rounded-full mt-2 flex-shrink-0"
-            ></div>
-            <div>
-              <p class="text-smoky-black-100 text-sm">+91 3592 000 000</p>
-              <p class="text-smoky-black-200 text-xs">Phone</p>
+              *ngFor="let contact of contactInfo"
+              class="flex items-start gap-3"
+            >
+              <lucide-angular
+                [img]="contact.icon"
+                class="w-5 h-5 text-blood-red-400 flex-shrink-0 mt-0.5"
+              />
+              <div>
+                <p class="text-smoky-black-100 text-sm font-medium">
+                  {{ contact.type }}
+                </p>
+                <p class="text-smoky-black-200 text-xs">{{ contact.value }}</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Social Media Section -->
-    <div class="border-t border-smoky-black-300 pt-1 mb-2">
+    <!-- Bottom Row -->
+    <div class="border-t border-blood-red-200/30 pt-2">
       <div class="flex flex-col lg:flex-row justify-between items-center gap-4">
-        <!-- Social Media -->
-        <div class="flex flex-col items-center lg:items-start space-y-2">
-          <h4 class="text-sm font-medium text-smoky-black-200">Follow Us</h4>
+        <!-- Follow Us -->
+        <div class="flex flex-col items-center lg:items-end">
           <div class="flex items-center gap-3">
+            <!-- Social Icons -->
             <a
               href="#"
               class="w-9 h-9 rounded-full bg-smoky-black-300 hover:bg-blood-red-500 flex items-center justify-center transition-all duration-200 group"
@@ -224,27 +195,10 @@
             </a>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Bottom Copyright -->
-    <div class="border-t border-smoky-black-300 pt-4">
-      <div
-        class="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left"
-      >
-        <div class="text-smoky-black-200 text-sm">
+        <!-- Copyright -->
+        <div class="text-smoky-black-200 text-sm text-center lg:text-left">
           &copy; 2025 Sikkim Newar Guthi. All rights reserved.
-        </div>
-        <div class="flex items-center gap-6 text-sm text-smoky-black-200">
-          <a href="#" class="hover:text-blood-red-300 transition-colors"
-            >Privacy Policy</a
-          >
-          <a href="#" class="hover:text-blood-red-300 transition-colors"
-            >Terms of Service</a
-          >
-          <a href="#" class="hover:text-blood-red-300 transition-colors"
-            >Cookie Policy</a
-          >
         </div>
       </div>
     </div>

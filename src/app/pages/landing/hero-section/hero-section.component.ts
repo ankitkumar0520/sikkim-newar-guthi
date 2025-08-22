@@ -31,7 +31,7 @@ export class HeroSectionComponent implements OnInit {
 
   slides: SlideContent[] = [
     {
-      image: 'assets/images/gods/god1.jpeg',
+      image: 'assets/images/gods/god1.png',
       alt: 'Divine Blessings',
       title: 'Divine Blessings & Protection',
       description:
@@ -39,7 +39,7 @@ export class HeroSectionComponent implements OnInit {
       buttonText: 'Know More',
     },
     {
-      image: 'assets/images/gods/god2.jpeg',
+      image: 'assets/images/gods/god2.png',
       alt: 'Sacred Traditions',
       title: 'Sacred Traditions & Rituals',
       description:
@@ -47,7 +47,7 @@ export class HeroSectionComponent implements OnInit {
       buttonText: 'Know More',
     },
     {
-      image: 'assets/images/gods/god3.jpeg',
+      image: 'assets/images/gods/god3.png',
       alt: 'Community Unity',
       title: 'Community Unity & Faith',
       description:
